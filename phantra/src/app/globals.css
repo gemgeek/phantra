@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #020617; 
+  color: white;
+  font-family: 'Geist', sans-serif;
+  height: 100vh;
+}
+
+/* ==============================
+   2. HOMEPAGE STYLES
+   ============================== */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  gap: 20px;
+  background: radial-gradient(circle at center, #1e1b4b 0%, #020617 70%); 
+}
+
+.logo-area {
+  margin-bottom: 20px;
+  animation: pulse 3s infinite ease-in-out;
+}
+
+/* The Big Gradient Title */
+h1 {
+  font-size: 4rem;
+  background: linear-gradient(to right, white, #2DD4BF, #7C3AED);
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+
+.subtitle {
+  color: #94a3b8;
+  font-size: 1.5rem;
+  font-weight: 300;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+/* The Homepage Button */
+.btn-primary {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(45, 212, 191, 0.5);
+  padding: 15px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 30px;
+  transition: all 0.3s;
+  backdrop-filter: blur(5px);
+}
+
+.btn-primary:hover {
+  background-color: #2DD4BF;
+  color: #020617;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(45, 212, 191, 0.4);
+}
+
+/* ==============================
+   3. DASHBOARD STYLES (The Studio)
+   ============================== */
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: #020617;
+}
+
+/* --- SIDEBAR (Left Menu) --- */
+.sidebar {
+  width: 280px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 10px;
+}
+
+.sidebar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #2DD4BF;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  border-radius: 12px;
+  color: #64748b;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.menu-item:hover, .menu-item.active {
+  background: rgba(45, 212, 191, 0.1);
+  color: white;
+  border-color: rgba(45, 212, 191, 0.2);
+}
+
+.menu-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* --- MAIN CONTENT AREA --- */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.header-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.header-subtitle {
+  color: #64748b;
+  margin-top: 5px;
+  margin-bottom: 40px;
+}
+
+/* --- STUDIO INPUTS --- */
+.thought-input {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  color: white;
+  padding: 25px;
+  font-size: 1.2rem;
+  min-height: 150px;
+  resize: none;
+  outline: none;
+  transition: all 0.3s;
+  font-family: inherit;
+  margin-bottom: 20px;
+}
+
+.thought-input:focus {
+  border-color: #7C3AED;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.btn-generate {
+  background: linear-gradient(135deg, #2DD4BF 0%, #3b82f6 100%);
+  color: #020617;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  float: right; /* Pushes button to the right */
+  transition: transform 0.2s;
+}
+
+.btn-generate:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.4);
+}
+
+/* --- CANVAS RESULT --- */
+.canvas-area {
+  margin-top: 80px; /* Space between button and image */
+  width: 100%;
+  height: 500px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 20px;
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.canvas-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeIn 1s ease;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255,255,255,0.1);
+  border-top-color: #2DD4BF;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
